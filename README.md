@@ -46,23 +46,42 @@ dependencies {
 #### Kotlin
 ```
 [AppylarApplication.kt]
+import com.appylar.android.sdk.interfaces.Events
 
 class AppylarApplication : Application(), Events {
 
     override fun onCreate() {
         super.onCreate()
+	Appylar.addEventListener(this)
+    }
+    
+    override fun onInitialized() {
+         
     }
 
+    override fun onError(error: String) {
+        
+    }
 }
 ```
-- #### Java
+#### Java
 ```
 [AppylarApplication.java]
+import com.appylar.android.sdk.interfaces.Events;
 
 public class AppylarApplication extends Application implements Events {
     @Override
     public void onCreate() {
         super.onCreate();
+    }
+    @Override
+    public void onInitialized() {
+                
+    }
+
+    @Override
+    public void onError(@NonNull String error) {
+
     }
 }
 ```
