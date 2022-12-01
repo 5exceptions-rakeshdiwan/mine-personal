@@ -93,4 +93,50 @@ public class AppylarApplication extends Application implements Events {
     android:name=".AppylarApplication"
     ...
 ```
-3. Setup the Configuration for your app. Set up with your values 😉
+3. How to add banner implementation.You need add banner component to your xml file.
+```
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.appylar.android.sdk.bannerview.BannerView
+        android:id="@+id/bannerViewTop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true" />
+
+</RelativeLayout>
+```	  
+3. Find id of banner component by using findViewById to you Kotlin/Java file.
+###### Kotlin
+```
+import com.appylar.android.sdk.bannerview.BannerView;
+
+class KotlinActivity : AppCompatActivity() {
+    var bannerView : BannerView? = null
+    
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_kotlin)
+        bannerView = findViewById(R.id.bannerView)
+    }
+}
+```
+###### Java
+```
+import com.appylar.android.sdk.bannerview.BannerView
+
+public class JavaActivity extends AppCompatActivity {
+    BannerView bannerView; 
+    
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_java);
+  	bannerView = findViewById(R.id.bannerView);
+    }
+}
+```	
+
+4. Setup the Configuration for your app. Set up with your values 😉
