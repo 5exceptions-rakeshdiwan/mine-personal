@@ -2,9 +2,9 @@
 
 Appylar library for Android is a lightweight and easy-to-use Ad integration SDK provided by Appylar. SDK enables developers to integrate Appylar Ads in any type of application.
 
-Appylar provides several type of ads and enables you to set ad where ever you want in application.
+Appylar provides several types of Ads and enables you to set Ads wherever you want in the application.
 
-Provided Ads by Appylar such as:
+The Ads provided by Appylar are like:
 
  - Banners
  - Insterstitials
@@ -42,8 +42,8 @@ dependencies {
 }
 ```
 
-# Step 2: Setup the Configuration for your App and Listeners
-1. Create arbitrary subclass of Application(), override it's onCreate() and implement interface of Events. You can, of course, use your Application subclass if you already have one in your project.
+# Step 2: Setup the configuration for your App and Listeners
+1. Create arbitrary subclass of Application(), override it's onCreate() method and implement `Events` interface. You can, of course, use your Application subclass, if you already have one in your project.
 #### Kotlin
 ```
 [AppylarApplication.kt]
@@ -54,7 +54,7 @@ class AppylarApplication : Application(), Events {
 
     override fun onCreate() {
         super.onCreate()
-	Appylar.addEventListener(this) /attach callback listeners for SDK before initialization
+	Appylar.addEventListener(this) //attach callback listeners for SDK before initialization
 	//Initialization
 	...
     }
@@ -104,8 +104,8 @@ override fun onCreate() {
 	 Appylar.init(
                 this, //Application context 
                 "<YOUR_APP_KEY>", 	//APP KEY provide by console for Development use ["jrctNFE1b-7IqHPShB-gKw"] 
-                arrayOf(AdType.BANNER, AdType.INTERSTITIAL), 	//What type Ads you want to integrate 
-                arrayOf(Orientation.PORTRAIT, Orientation.LANDSCAPE), 	//Supported orientations for ads
+                arrayOf(AdType.BANNER, AdType.INTERSTITIAL), 	//What type of Ads you want to integrate 
+                arrayOf(Orientation.PORTRAIT, Orientation.LANDSCAPE), 	//Supported orientations for Ads
                 true 	//Test Mode, [TRUE] for development & [FALSE] for production
             )
 }
@@ -121,7 +121,7 @@ public void onCreate() {
 		this, //application context 
 		"<YOUR_APP_KEY>", 	//APP KEY provide by console for Development use ["jrctNFE1b-7IqHPShB-gKw"]
 		new AdType[] {AdType.BANNER, AdType.INTERSTITIAL}, 	//What type Ads you want to integrate 
-		new Orientation[] {Orientation.PORTRAIT, Orientation.LANDSCAPE}, 	//Supported orientations for ads
+		new Orientation[] {Orientation.PORTRAIT, Orientation.LANDSCAPE}, 	//Supported orientations for Ads
                 true 	//Test Mode, [TRUE] for development & [FALSE] for production
 	); 
 }
@@ -135,7 +135,7 @@ public void onCreate() {
     ...
 ```
 # Step 3: Add BannerView to the application
-1. To integrate BannerView component in your design, Prefer below snippet.
+1. To integrate the BannerView component in your design, prefer below snippet:
 ```
 <com.appylar.android.sdk.bannerview.BannerView
 	android:id="@+id/bannerView"
@@ -158,11 +158,11 @@ class KotlinActivity : AppCompatActivity() : BannerViewListener {
     	}
 	
 	override fun onNoAd() {
-        	//Callback if there is not ad available to show
+        	//Callback if there is not Ad available to show
 	}
 
 	override fun onAdShown() {
-		//Callback for ad show success
+		//Callback for Ad show success
 	}
 }
 ```
@@ -183,12 +183,12 @@ public class JavaActivity extends AppCompatActivity implements BannerViewListene
 	
 	@Override
         public void onNoAd() {
-		//Callback if there is not ad available to show
+		//Callback if there is not Ad available to show
 	}
 	
 	@Override
         public void onAdShown() {
-		//Callback for ad show success
+		//Callback for Ad show success
 	}
 }
 ```	
@@ -197,7 +197,7 @@ public class JavaActivity extends AppCompatActivity implements BannerViewListene
 ```
 bannerView.addEventListener(this) //Attach Event Listeners
 if(canShowAd()) {
-	//Ask BannerView to show Ad on the UI with optional customized placement
+	//BannerView to show Ad on the UI with optional customized placement
 	//Leave blank if not required
 	bannerView.ShowAd("<PLACEMENT_STRING>") 	
 }
@@ -207,7 +207,7 @@ if(canShowAd()) {
 ```
 bannerView.addEventListener(this); //Attach Event Listeners
 if(canShowAd()) { //Check Ad availability
-	//Ask BannerView to show Ad on the UI with optional customized placement
+	//BannerView to show Ad on the UI with optional customized placement
 	//Leave blank if not required
 	bannerView.ShowAd("<PLACEMENT_STRING>");	
 }
@@ -228,11 +228,11 @@ class KotlinActivity : AppCompatActivity() : InterstitialListener {
     	}
 	
 	override fun onNoAd() {
-        	//Callback if there is not ad available to show
+        	//Callback if there is not Ad available to show
 	}
 
 	override fun onAdShown() {
-		//Callback for ad show success
+		//Callback for Ad show success
 	}
 	
 	override fun onInterstitialClosed() {
@@ -256,12 +256,12 @@ public class JavaActivity extends AppCompatActivity implements InterstitialListe
 	
 	@Override
         public void onNoAd() {
-		//Callback if there is not ad available to show
+		//Callback if there is not Ad available to show
 	}
 	
 	@Override
         public void onAdShown() {
-		//Callback for ad show success
+		//Callback for Ad show success
 	}
 	
 	@Override
@@ -275,7 +275,7 @@ public class JavaActivity extends AppCompatActivity implements InterstitialListe
 ```
 Interstitial.addEventListener(this) //Attach Event Listeners
 if(Interstitial.canShowAd()) {
-	//Ask Interstitial to show Ad on the UI with context of activity and optional customized placement
+	//Interstitial to show Ad on the UI with context of activity and optional customized placement
 	//Leave blank if not required
 	Interstitial.ShowAd(this, "<PLACEMENT_STRING>")
 }
@@ -284,7 +284,7 @@ if(Interstitial.canShowAd()) {
 ```
 Interstitial.addEventListener(this); //Attach Event Listeners
 if(Interstitial.canShowAd()) { //Check Ad availability
-	//Ask Interstitial to show Ad on the UI with context of activity and optional customized placement
+	//Interstitial to show Ad on the UI with context of activity and optional customized placement
 	//Leave blank if not required
 	bannerView.ShowAd("<PLACEMENT_STRING>");	
 }
